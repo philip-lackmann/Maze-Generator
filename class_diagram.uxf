@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>340</y>
+      <w>330</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>Cell
+-
+-neighbours : HashMap&lt;Direction, Cell&gt;
+-walls : HashMap&lt;Direction, Line&gt;
+-background : Rectangle
+-x : int
+-y : int
+-isFillLocked : boolean
+-
++Cell(grid : Grid, posX : double, posY : double,
+width : double, height : double, strokeColor : Color,
+strokeWidth : double)
++deleteWall(dir : Direction) : void
++setFill(c : Color) : void
++lockFill(isFillLocked : boolean) : void
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>110</y>
+      <w>150</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Direction
+-
+UP
+DOWN
+LEFT
+RIGHT
+-opposite : Direction
+-
++inverse() : Direction</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>360</y>
+      <w>340</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>/Grid/
+-
+-cells : Cell[][]
+-chosenCell : Cell;
+-cellsColor : Color
+-
++Grid(columns : int, rows : int, posX : double, 
+posY : double, cellSize : int, strokeColor : Color,
+strokeWidth : double, cellsColor : Color)
++getCell(x : int, y : int) : Cell
+-findCellNeighbours(columns : int, rows : int) : void
++setChosenCell(cell : Cell) : void
++getChosenCell() : Cell</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>60</y>
+      <w>340</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>Maze
+-
+-visited : Stack&lt;Cell&gt;
+-currentCell : Cell
+-isGenerating : boolean
+-timeline : Timeline
+-
++Maze(columns : int, rows : int, posX : double, 
+posY : double, cellSize : int, strokeColor : Color,
+strokeWidth : double, cellsColor : Color)
++depthFirstSearchMaze(intervalInMillis : double, 
+visualize : boolean, currentCellColor : Color,
+visitedCellColor : Color, finishedCellsColor : Color)
+-depthFirstSearch(currentCellColor : Color,
+visitedCellsColor : Color, finishedCellsColor : Color)
++setChosenCell(cell : Cell)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>250</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>450</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>710</x>
+      <y>290</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
